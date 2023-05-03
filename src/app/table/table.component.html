@@ -1,0 +1,67 @@
+<p>child works!</p>
+
+<br>
+<br>
+
+ <h4 [ngClass]="isSpecial ? 'special' : ''">NgClass Build in directive</h4>
+
+ <h4 [ngStyle]="{'color': isSpecial ? 'blue' : 'red',
+ 'font-size': isLarge ? '24px' : '16px'}">ngStyle directive</h4>
+
+ 
+<input   [style.color]="'blue'" [style.fontSize.px]="16" [style.width.px]="400" [style.height.px]="40"
+type="text" [(ngModel)] = "searchTerm" placeholder="Search...">
+
+
+<br>
+<br>
+<br>
+
+
+<table>
+    <thead>
+        
+            <tr *ngFor= "let head of tableHead ">
+                <th>
+                    {{head.no}}
+                </th>
+                <th>
+                    {{head.name}}
+                </th>
+                <th>
+                    {{head.department}}
+                </th>
+
+                <th>
+                    {{head.date}}
+                </th>
+            </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor=" let data of tableData | filterBySearchTerm:searchTerm"  appFirstDirective>
+
+           <!--  -->
+
+            <td [appFirstDirective]="'blue'" >
+                
+                {{data.no}}
+            </td>
+            <td>
+                {{data.name | short }}
+                
+            </td>
+
+            <td>
+                {{data.department}}
+
+            </td>
+            <td>
+
+                {{data.date | date: 'dd/MM/yyyy'}}
+
+            </td>
+        </tr>
+
+    </tbody>
+</table>

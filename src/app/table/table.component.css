@@ -1,0 +1,15 @@
+table, tr,th, td{
+    border: 1px solid black;
+    padding: 12px;
+
+}
+.special{
+font-size: 32px;
+    background-color: pink;
+}
+
+.search{
+    width: 400px;
+    height: 200px;
+    font-size: 20px
+}
